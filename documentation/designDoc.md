@@ -1,5 +1,12 @@
 #Puzzle 'horror' game
 
+##Links to wireframe/userstories
+[wireframe](https://wireframe.cc/laib3L)
+[user stories](https://hackmd.io/s/ryNByOvsV)
+
+
+
+
 ##Objective
 * create a browser based game with several puzzles that have to be solved with out of game resources. I.E. - pen and paper, photoshop, wave spectrum analysis. 
 
@@ -28,8 +35,12 @@
 * number is 137 most reoccuring number in physics. 
 * pass - 137
 
-### Puzzle 4
+### Puzzle 4 
+* attempting to create a two stage puzzle, have not had time yet to create the images/puzzle
 * link
 * link2 
 * pass
 * explanation
+
+### Puzzle 5 
+*attempt interactive puzzle 
