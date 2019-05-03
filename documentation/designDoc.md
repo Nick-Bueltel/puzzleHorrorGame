@@ -3,6 +3,7 @@
 ##Links to wireframe/userstories
 [wireframe](https://wireframe.cc/laib3L)
 [user stories](https://hackmd.io/s/ryNByOvsV)
+[trello](https://trello.com/b/QbXh8Jgp/sei-unit-1-puzzle-game)
 
 
 
