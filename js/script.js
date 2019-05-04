@@ -98,6 +98,7 @@ function resetGame(){
     inputBox.style.visibility = 'hidden';
     boxButton.style.visibility = 'hidden';
     title.style.visibility = 'visible';
+    bgm.pause();
 }
 
 function punish(){
