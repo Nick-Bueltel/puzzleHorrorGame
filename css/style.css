@@ -8,7 +8,7 @@
 body{
     background-color: #3F4045; 
     color: #F7F7F2;
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Amatic SC';
 }
 
 h1{
@@ -20,7 +20,7 @@ h1{
 button{
     background-color: #5D737E;
     color: #F7F7F2;
-    font-family: 'Amatic SC', cursive; 
+    font-family: 'Amatic SC';
     font-size: 25px;
 
 
@@ -36,7 +36,7 @@ input{
     visibility: hidden;
     background-color: #0D1B1E;
     color: #F7F7F2; 
-    font-family: 'Amatic SC', cursive; 
+    font-family: 'Amatic SC';
     font-size: 25px; 
 }
 a{
@@ -48,6 +48,11 @@ a{
 
 #boxButton{
     visibility: hidden;
+}
+
+#pointsDiv{
+    float:left; 
+    font-size: 20px; 
 }
 
 @media screen and (min-width : 1000px){
