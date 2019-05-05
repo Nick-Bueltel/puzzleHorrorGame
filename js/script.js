@@ -65,21 +65,27 @@ function startPuzzle(){
         thispuzzle = pzArray[Math.floor(Math.random()*pzArray.length)];
 
     }; 
-    
-    
+   
     playingGame();
-    setPoints();
+    
 
 }
 
 function setPoints(){
     pointsTotal = 50;
-    points.innerHTML = pointsTotal;  
+    points.innerHTML = pointsTotal; 
+    
+   
 }
 
 function deductPoints(){
-    pointsTotal = pointsTotal -5; 
+    pointsTotal = pointsTotal - 5; 
     points.innerHTML = pointsTotal; 
+}
+
+function addPoints(){
+    pointsTotal = pointsTotal + 15;
+    points.innerHTML = pointsTotal;
 }
 
 function playingGame(){
@@ -93,16 +99,17 @@ function playingGame(){
 }
 
 function resetGame(){
-    image.setAttribute('src', '#')
+    image.setAttribute('src' , '#');
     onlyButton.style.visibility = 'visible';
     inputBox.style.visibility = 'hidden';
     boxButton.style.visibility = 'hidden';
     title.style.visibility = 'visible';
+    image.style.visibility = 'hidden';
     bgm.pause();
 }
 
 function punish(){
-    image.setAttribute('src', 'https://i.imgur.com/cBYUTlr.jpg');
+    image.setAttribute('src', 'https://i.imgur.com/fe3sok0.jpg');
     thispuzzle.bgm.pause();
     //sound.play();
 }
@@ -120,10 +127,11 @@ function determineEligibility(){
 function checkAnswer(){
     answer = document.getElementById("inputBox");
     if(answer.value === thispuzzle.pass){
-        alert('you win');
+        //image.setAttribute('src', 'https://i.imgur.com/TcjuaVA.jpg');
         thispuzzle.played = true; 
         //refactor below code into a function 
         resetGame();
+        addPoints();
         
 
     } else if(pointsTotal === 0){
@@ -150,3 +158,5 @@ onlyButton.addEventListener('click', determineEligibility);
 var boxButton = document.getElementById("boxButton"); 
 boxButton.addEventListener('click', checkAnswer);
 
+//initial function calls
+setPoints();
