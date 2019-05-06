@@ -5,6 +5,9 @@ var boxButton = document.getElementById("boxButton");
 var onlyButton = document.getElementById("onlyButton");
 var title = document.getElementById("title");
 var points = document.getElementById("pointsDiv");
+var warning = document.getElementById("warning");
+var score = 0;
+var scoreDisplay = document.getElementById("scoreDiv");
 
 
 
@@ -16,13 +19,18 @@ var ds2 = new Audio("SE/deathsounds/died2.ogg");
 var ds3 = new Audio("SE/deathsounds/died3.ogg");
 var ds4 = new Audio("SE/deathsounds/died4.ogg");
 var apathy = new Audio("BGM/apathy.ogg");
-var rChanger = new Audio("BGM/rhythm-changer.ogg")
-
-
+var rChanger = new Audio("BGM/rhythm-changer.ogg");
+var chips = new Audio("BGM/chips.mp3");
+var duvide = new Audio("BGM/duvide.mp3");
+var rain = new Audio("SE/rain.ogg");
+var victory = new Audio("BGM/nighteye.ogg")
 //audio loop definitions 
 cicadas.loop=true;
 apathy.loop=true;
 rChanger.loop=true; 
+chips.loop=true;
+duvide.loop=true;
+rain.loop=true; 
 
 
 //puzzles - please dont spoil it for yourself. 
@@ -51,20 +59,28 @@ class Puzzle{
 const puzzle1 = new Puzzle('https://i.imgur.com/j0UMwfZ.jpg', '19140728', cicadas);
 const puzzle2 = new Puzzle('https://i.imgur.com/NqkqByd.jpg', '682', rChanger);
 const puzzle3 = new Puzzle('https://i.imgur.com/3PBJQOy.jpg', '137', apathy);
-const puzzle4 = new Puzzle('#', '#');
+const puzzle4 = new Puzzle('https://i.imgur.com/TGDbNxI.jpg', '18450911',chips );
+const puzzle5 = new Puzzle('https://i.imgur.com/p2Ny5Wb.jpg','017',duvide)
 
 //puzzle array
-const pzArray = [puzzle1, puzzle2, puzzle3];
+const pzArray = [puzzle5, puzzle4, puzzle3, puzzle2, puzzle1];
 const dSounds = [ds1, ds2, ds3, ds4];
 
 //classless functions 
 function startPuzzle(){
     //selects a random puzzle from the array
-    thispuzzle = pzArray[Math.floor(Math.random()*pzArray.length)]; 
-    while (thispuzzle.played === true){
-        thispuzzle = pzArray[Math.floor(Math.random()*pzArray.length)];
+    // thispuzzle = pzArray[Math.floor(Math.random()*pzArray.length)]; 
+    // if (thispuzzle.played === true){
+    //     thispuzzle = pzArray[Math.floor(Math.random()*pzArray.length)];
 
-    }; 
+    // } else if (thispuzzle.played === true){ startPuzzle();
+
+    // }
+    for(i in pzArray){
+        thispuzzle = pzArray[i];
+        
+    }
+    
    
     playingGame();
     
@@ -88,6 +104,24 @@ function addPoints(){
     points.innerHTML = pointsTotal;
 }
 
+function setScore(){
+    scoreDisplay.innerHTML = score; 
+}
+
+function addScore(){
+    score = score + 1;
+    scoreDisplay.innerHTML = score; 
+}
+function checkScore(){
+    if(score >= pzArray.length){
+        image.setAttribute('src', 'https://i.imgur.com/TcjuaVA.jpg');
+        victory.play();
+        
+    } else {
+        return; 
+    }
+}
+
 function playingGame(){
     image.style.visibility = 'visible'
     image.setAttribute('src', thispuzzle.file);
@@ -95,6 +129,8 @@ function playingGame(){
     boxButton.style.visibility = 'visible';
     onlyButton.style.visibility = 'hidden';
     title.style.visibility = 'hidden';
+    warning.style.visibility = 'hidden';
+    rain.pause();
     thispuzzle.bgm.play();
 }
 
@@ -105,7 +141,8 @@ function resetGame(){
     boxButton.style.visibility = 'hidden';
     title.style.visibility = 'visible';
     image.style.visibility = 'hidden';
-    bgm.pause();
+    thispuzzle.bgm.pause();
+    
 }
 
 function punish(){
@@ -119,6 +156,7 @@ function punish(){
 function determineEligibility(){
     if(image.getAttribute('src') === "#"){
         startPuzzle();
+        checkScore();
     } else {
         return; 
     }   
@@ -131,7 +169,8 @@ function checkAnswer(){
         thispuzzle.played = true; 
         //refactor below code into a function 
         resetGame();
-        addPoints();
+        addScore();
+        pzArray.pop();
         
 
     } else if(pointsTotal === 0){
@@ -159,4 +198,5 @@ var boxButton = document.getElementById("boxButton");
 boxButton.addEventListener('click', checkAnswer);
 
 //initial function calls
-setPoints();
+setPoints(); 
+setScore();

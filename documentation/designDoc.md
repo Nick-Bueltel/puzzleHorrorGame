@@ -37,11 +37,9 @@
 * pass - 137
 
 ### Puzzle 4 
-* attempting to create a two stage puzzle, have not had time yet to create the images/puzzle
-* link
-* link2 
-* pass
-* explanation
+* 18450911
+* guy who made the baud communication method. 
+
 
 ### Puzzle 5 
-*attempt interactive puzzle 
+* 017

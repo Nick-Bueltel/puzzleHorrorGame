@@ -6,14 +6,18 @@
 }
 
 body{
-    background-color: #3F4045; 
+    background-image: linear-gradient(to top right, #5D737E, #3F4045); 
     color: #F7F7F2;
     font-family: 'Amatic SC';
+    height: 100vh; 
 }
 
 h1{
     width: 100%;
 
+}
+div{
+    
 }
 
 
@@ -30,6 +34,8 @@ img{
     visibility: hidden;
     align-self: center;
     width: 100%; 
+    border-radius: .25%;
+    
 }
 
 input{
@@ -45,6 +51,10 @@ a{
     text-align: center; 
     margin: 10px; 
 }
+p{
+    font-size: 15px; 
+    text-align: center;
+}
 
 #boxButton{
     visibility: hidden;
@@ -52,6 +62,14 @@ a{
 
 #pointsDiv{
     float:left; 
+    font-size: 25px; 
+    margin-left: 10vmin; 
+    color: darkred;
+}
+
+#scoreDiv{
+    float: right; 
+    margin-right: 10vmin;
     font-size: 20px; 
 }
 
