@@ -113,7 +113,7 @@ function addScore(){
     scoreDisplay.innerHTML = score; 
 }
 function checkScore(){
-    if(score >= pzArray.length){
+    if(score === 5){
         image.setAttribute('src', 'https://i.imgur.com/TcjuaVA.jpg');
         victory.play();
         
