@@ -26,7 +26,7 @@ var victory = new Audio("BGM/nighteye.ogg")
 var ay = new Audio("BGM/ay.ogg");
 //audio loop definitions 
 cicadas.loop=true;
-apathy.loop=true;
+ay.loop=true;
 rChanger.loop=true; 
 chips.loop=true;
 duvide.loop=true;
