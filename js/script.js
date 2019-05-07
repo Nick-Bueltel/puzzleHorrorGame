@@ -90,7 +90,7 @@ var sec = thispuzzle.time;
 if (thispuzzle.played === false){
     let int = setInterval(() => {
     timerCountDown();
-    if(sec <= 0){
+    if(sec <= 0 && pointsTotal >= 0){
         deductPoints();
         urgency.pause();
         hurry.pause();
