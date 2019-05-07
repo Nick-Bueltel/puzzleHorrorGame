@@ -18,12 +18,12 @@ var ds1 = new Audio("SE/deathsounds/died1.ogg");
 var ds2 = new Audio("SE/deathsounds/died2.ogg");
 var ds3 = new Audio("SE/deathsounds/died3.ogg");
 var ds4 = new Audio("SE/deathsounds/died4.ogg");
-var apathy = new Audio("BGM/apathy.ogg");
 var rChanger = new Audio("BGM/rhythm-changer.ogg");
 var chips = new Audio("BGM/chips.mp3");
 var duvide = new Audio("BGM/duvide.mp3");
 var rain = new Audio("SE/rain.ogg");
 var victory = new Audio("BGM/nighteye.ogg")
+var apathy = new Audio("BGM/apathy.ogg");
 //audio loop definitions 
 cicadas.loop=true;
 apathy.loop=true;
