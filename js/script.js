@@ -23,7 +23,7 @@ var chips = new Audio("BGM/chips.mp3");
 var duvide = new Audio("BGM/duvide.mp3");
 var rain = new Audio("SE/rain.ogg");
 var victory = new Audio("BGM/nighteye.ogg")
-var apathy = new Audio("BGM/apathy.ogg");
+var ay = new Audio("BGM/ay.ogg");
 //audio loop definitions 
 cicadas.loop=true;
 apathy.loop=true;
@@ -58,7 +58,7 @@ class Puzzle{
 //define puzzle objects from class 
 const puzzle1 = new Puzzle('https://i.imgur.com/j0UMwfZ.jpg', '19140728', cicadas);
 const puzzle2 = new Puzzle('https://i.imgur.com/NqkqByd.jpg', '682', rChanger);
-const puzzle3 = new Puzzle('https://i.imgur.com/3PBJQOy.jpg', '137', apathy);
+const puzzle3 = new Puzzle('https://i.imgur.com/3PBJQOy.jpg', '137', ay);
 const puzzle4 = new Puzzle('https://i.imgur.com/TGDbNxI.jpg', '18450911',chips );
 const puzzle5 = new Puzzle('https://i.imgur.com/p2Ny5Wb.jpg','017',duvide)
 
