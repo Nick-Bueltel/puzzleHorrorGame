@@ -8,3 +8,4 @@ you must use methods outside of the game to solve the puzzles.
 
 a helpful site is [asciitohex](https://www.asciitohex.com/)
 
+//icloud ate all of the files had to reupload

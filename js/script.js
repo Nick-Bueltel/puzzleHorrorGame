@@ -200,3 +200,6 @@ boxButton.addEventListener('click', checkAnswer);
 //initial function calls
 setPoints(); 
 setScore();
+
+
+//icloud ate all the files had to reupload
