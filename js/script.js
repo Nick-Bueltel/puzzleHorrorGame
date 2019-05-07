@@ -8,12 +8,13 @@ var points = document.getElementById("pointsDiv");
 var warning = document.getElementById("warning");
 var score = 0;
 var scoreDisplay = document.getElementById("scoreDiv");
-
+var timer = document.getElementById("timer");
 
 
 //define audio constants to call inside of the objects.
 var hahah = new Audio('SE/ahaha.wav');
 var cicadas = new Audio("SE/cicadas.ogg");
+var urgency = new Audio("SE/schoolbell.wav");
 var ds1 = new Audio("SE/deathsounds/died1.ogg");
 var ds2 = new Audio("SE/deathsounds/died2.ogg");
 var ds3 = new Audio("SE/deathsounds/died3.ogg");
@@ -24,6 +25,7 @@ var duvide = new Audio("BGM/duvide.mp3");
 var rain = new Audio("SE/rain.ogg");
 var victory = new Audio("BGM/nighteye.ogg")
 var ay = new Audio("BGM/ay.ogg");
+var hurry = new Audio("SE/ominouschello.ogg")
 //audio loop definitions 
 cicadas.loop=true;
 ay.loop=true;
@@ -33,21 +35,17 @@ duvide.loop=true;
 rain.loop=true; 
 
 
+
 //puzzles - please dont spoil it for yourself. 
 class Puzzle{
-    constructor(file, pass, bgm){
-    this.solved = false; 
+    constructor(file, pass, bgm){ 
     this.file = file;
     this.pass = pass;
     this.played = false; 
     this.bgm = bgm;
+    this.time = 600; 
     }
-    //solved function - display 'prize' - reset page
-    winner(){
-        if(this.solved === true){
-            this.image = '#';
-        }
-    }
+ 
     //reset page function, decided to bake into puzzle class to avoid
     //repetition
     reset(){
@@ -86,7 +84,49 @@ function startPuzzle(){
     
 
 }
+//timer and functions related to timer, nested inside of the set interval code. 
+function timers(){
+var sec = thispuzzle.time;
+if (thispuzzle.played === false){
+    let int = setInterval(() => {
+    timerCountDown();
+    if(sec <= 0){
+        deductPoints();
+        urgency.pause();
+        hurry.pause();
+        hahah.play();
 
+    };
+    if(pointsTotal === 0){
+        punish();
+        var dSound = dSounds[Math.floor(Math.random() * dSounds.length)];
+        dSound.play();
+    };
+    if(sec === 160){
+        thispuzzle.bgm.pause();
+        hurry.play();
+    }
+    
+    if(sec === 30){
+        urgency.play();
+
+    };
+    if(image.style.visibility === 'hidden'){
+        console.log(int)
+        return clearInterval(int);
+        };
+    }, 1000)
+
+function timerCountDown(int){
+    timer.innerHTML = "Time Left: " + sec + " seconds."; 
+    sec --; 
+    return sec; 
+    }
+    
+
+}
+
+}
 function setPoints(){
     pointsTotal = 50;
     points.innerHTML = pointsTotal; 
@@ -132,6 +172,7 @@ function playingGame(){
     warning.style.visibility = 'hidden';
     rain.pause();
     thispuzzle.bgm.play();
+    timers();
 }
 
 function resetGame(){
@@ -142,6 +183,7 @@ function resetGame(){
     title.style.visibility = 'visible';
     image.style.visibility = 'hidden';
     thispuzzle.bgm.pause();
+    
     
 }
 
@@ -200,6 +242,4 @@ boxButton.addEventListener('click', checkAnswer);
 //initial function calls
 setPoints(); 
 setScore();
-
-
 //icloud ate all the files had to reupload
