@@ -11,6 +11,7 @@ var scoreDisplay = document.getElementById("scoreDiv");
 var timer = document.getElementById("timer");
 
 
+
 //define audio constants to call inside of the objects.
 var hahah = new Audio('SE/ahaha.wav');
 var cicadas = new Audio("SE/cicadas.ogg");
@@ -34,7 +35,8 @@ chips.loop=true;
 duvide.loop=true;
 rain.loop=true; 
 
-
+//regular constants 
+hMode = false; 
 
 //puzzles - please dont spoil it for yourself. 
 class Puzzle{
@@ -168,16 +170,29 @@ function playingGame(){
     inputBox.style.visibility = 'visible';
     boxButton.style.visibility = 'visible';
     onlyButton.style.visibility = 'hidden';
+    hModeButton.style.visibility = 'hidden';
     title.style.visibility = 'hidden';
     warning.style.visibility = 'hidden';
     rain.pause();
     thispuzzle.bgm.play();
+    
+}
+function hardMode(){
+determineEligibility();
     timers();
 }
 
 function resetGame(){
     image.setAttribute('src' , '#');
-    onlyButton.style.visibility = 'visible';
+    if (hMode === true){
+        onlyButton.style.visibility = 'hidden';
+        hModeButton.style.visibility = 'visible';
+    }
+    if(hMode === false){
+        hModeButton.style.visibility = 'hidden';
+        timer.style.visibility = 'hidden';
+        onlyButton.style.visibility = 'visible';
+    };
     inputBox.style.visibility = 'hidden';
     boxButton.style.visibility = 'hidden';
     title.style.visibility = 'visible';
@@ -213,6 +228,7 @@ function checkAnswer(){
         resetGame();
         addScore();
         pzArray.pop();
+        inputBox.value = '';
         
 
     } else if(pointsTotal === 0){
@@ -238,6 +254,15 @@ onlyButton.addEventListener('click', determineEligibility);
 //button to check answer
 var boxButton = document.getElementById("boxButton"); 
 boxButton.addEventListener('click', checkAnswer);
+inputBox.addEventListener('keyup',function(e){
+    if(e.keyCode === 13){
+        checkAnswer();
+    }
+});
+
+//hard mode button
+var hModeButton = document.getElementById("hardModeButton");
+hModeButton.addEventListener('click', hardMode);
 
 //initial function calls
 setPoints(); 
