@@ -20,6 +20,13 @@
 	* World war 1 28July1914 - (19140728) = pass
 	* puzzle is solved by translating hex into ascii and googling the date of the start of ww1 
     * https://i.imgur.com/j0UMwfZ.jpg
+	* story - “The call was short the blow severe,
+
+I little know that death was near
+
+Only those who have lost are able to tell
+
+The pain that I felt at not saying farewell”
 ### Puzzle 2 
 	* ### - the impossible to destroy reptile 
 		* translate into B.F..js
@@ -28,20 +35,27 @@
 
 	* scp-682 - (682)=pass
     * https://i.imgur.com/NqkqByd.jpg
-
+	* story - 
+	1: First Occurrence, ██-██-████: Handled by Agent ███████, Agent ███, Agent ████████ (KIA), Personnel D-129 (KIA), Personnel D-027 (KIA), Personnel D-173 (KIA), Personnel D-200 (KIA), Personnel D-193 (KIA)
 
 ### Puzzle 3
 * https://i.imgur.com/3PBJQOy.jpg
 * links to a markdown memo that gived the hint "the most prevalent number in the universe."
 * number is 137 most reoccuring number in physics. 
 * pass - 137
+* story - 
+The constant figures in other situations, making physicists wonder why. Why does nature insist on this number?
 
 ### Puzzle 4 
 * 18450911
 * guy who made the baud communication method. 
+* story - 
+Many people use bit rate per second (bps) and baud rate interchangeably, which is not correct. The bps is defined as the number of binary bits transmitted per second, while Baud rate is defined as the number of signal elements or states transmitted per second.
 
 
 ### Puzzle 5 
 * 017
 
 // icloud ate all the files. had to re-clone 
+story - 
+SCP-017's reaction to shadows cast upon it is immediate and swift. SCP-017 leaps at the object casting the shadow and completely encloses it in its shroud, whereupon it returns to its normal size, leaving no trace of the object behind.

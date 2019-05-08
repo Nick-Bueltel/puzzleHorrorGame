@@ -40,12 +40,13 @@ hMode = false;
 
 //puzzles - please dont spoil it for yourself. 
 class Puzzle{
-    constructor(file, pass, bgm){ 
+    constructor(file, pass, bgm, story){ 
     this.file = file;
     this.pass = pass;
     this.played = false; 
     this.bgm = bgm;
     this.time = 600; 
+    this.story = story; 
     }
  
     //reset page function, decided to bake into puzzle class to avoid
@@ -56,11 +57,11 @@ class Puzzle{
 };
 
 //define puzzle objects from class 
-const puzzle1 = new Puzzle('https://i.imgur.com/j0UMwfZ.jpg', '19140728', cicadas);
-const puzzle2 = new Puzzle('https://i.imgur.com/NqkqByd.jpg', '682', rChanger);
-const puzzle3 = new Puzzle('https://i.imgur.com/3PBJQOy.jpg', '137', ay);
-const puzzle4 = new Puzzle('https://i.imgur.com/TGDbNxI.jpg', '18450911',chips );
-const puzzle5 = new Puzzle('https://i.imgur.com/p2Ny5Wb.jpg','017',duvide)
+const puzzle1 = new Puzzle('https://i.imgur.com/j0UMwfZ.jpg', '19140728', cicadas, "The call was short the blow severe, I little know that death was near, Only those who have lost are able to tell, The pain that I felt at not saying farewell");
+const puzzle2 = new Puzzle('https://i.imgur.com/NqkqByd.jpg', '682', rChanger, "First Occurrence, ██-██-████: Handled by Agent ███████, Agent ███, Agent ████████ (KIA), Personnel D-129 (KIA), Personnel D-027 (KIA), Personnel D-173 (KIA), Personnel D-200 (KIA), Personnel D-193 (KIA)");
+const puzzle3 = new Puzzle('https://i.imgur.com/3PBJQOy.jpg', '137', ay, "Why does nature insist on this number?");
+const puzzle4 = new Puzzle('https://i.imgur.com/TGDbNxI.jpg', '18450911',chips, "Many people use bit rate per second (bps) and baud rate interchangeably, which is not correct. The bps is defined as the number of binary bits transmitted per second, while Baud rate is defined as the number of signal elements or states transmitted per second." );
+const puzzle5 = new Puzzle('https://i.imgur.com/p2Ny5Wb.jpg','017',duvide, "SCP-017's reaction to shadows cast upon it is immediate and swift. SCP-017 leaps at the object casting the shadow and completely encloses it in its shroud, whereupon it returns to its normal size, leaving no trace of the object behind.")
 
 //puzzle array
 const pzArray = [puzzle5, puzzle4, puzzle3, puzzle2, puzzle1];
@@ -165,6 +166,7 @@ function checkScore(){
 }
 
 function playingGame(){
+    storyP.innerHTML = '';
     image.style.visibility = 'visible'
     image.setAttribute('src', thispuzzle.file);
     inputBox.style.visibility = 'visible';
@@ -198,6 +200,8 @@ function resetGame(){
     title.style.visibility = 'visible';
     image.style.visibility = 'hidden';
     thispuzzle.bgm.pause();
+   
+
     
     
 }
@@ -224,6 +228,7 @@ function checkAnswer(){
     if(answer.value === thispuzzle.pass){
         //image.setAttribute('src', 'https://i.imgur.com/TcjuaVA.jpg');
         thispuzzle.played = true; 
+        storyP.innerHTML = thispuzzle.story;
         //refactor below code into a function 
         resetGame();
         addScore();
@@ -246,7 +251,7 @@ function checkAnswer(){
 }
 
 //event listeners 
-
+var storyP = document.getElementById('storyP')
 //button to start game
 var onlyButton = document.getElementById("onlyButton");
 onlyButton.addEventListener('click', determineEligibility);
