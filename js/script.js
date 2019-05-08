@@ -180,7 +180,8 @@ function playingGame(){
     
 }
 function hardMode(){
-determineEligibility();
+    hMode = true; 
+    determineEligibility();
     timers();
 }
 
